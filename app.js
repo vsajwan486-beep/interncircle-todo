@@ -5,6 +5,7 @@ const list = document.getElementById("list");
 const count = document.getElementById("count");
 const filters = document.querySelector(".filters");
 const clearCompleted = document.getElementById("clear-completed");
+const searchInput = document.getElementById("search");
 
 let currentFilter = "all";
 
@@ -27,10 +28,18 @@ function load() {
 function render() {
     list.innerHTML = "";
 
-    const visibleTasks = tasks.filter(function(task) {
-    if (currentFilter === "active") return !task.done;
-    if (currentFilter === "done") return task.done;
-    return true;
+    
+const query = searchInput.value.trim().toLowerCase();
+
+const visibleTasks = tasks.filter(function(task) {
+    const matchesSearch = task.text.toLowerCase().includes(query);
+
+    const matchesFilter =
+        currentFilter === "all" ||
+        (currentFilter === "active" && !task.done) ||
+        (currentFilter === "done" && task.done);
+
+    return matchesSearch && matchesFilter;
 });
 
 visibleTasks.forEach(function(task) {
@@ -135,6 +144,9 @@ clearCompleted.addEventListener("click", function() {
     });
 
     save();
+    render();
+});
+searchInput.addEventListener("input", function() {
     render();
 });
 

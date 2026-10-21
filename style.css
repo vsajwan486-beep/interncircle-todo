@@ -1,83 +1,140 @@
 
-/* Basic page styling */
+/* ---------- Global styles ---------- */
 * {
     box-sizing: border-box;
 }
 
 body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f6f8;
+    font-family: "Segoe UI", Arial, sans-serif;
+    background: linear-gradient(135deg, #f3e8ff, #eef2ff, #fdf2f8);
+    background-attachment: fixed;
     margin: 0;
     padding: 40px 20px;
-    color: #333;
+    color: #2e2445;
+    min-height: 100vh;
 }
 
-/* Main container */
+/* ---------- Main card ---------- */
 .container {
-    max-width: 500px;
+    max-width: 540px;
     margin: 40px auto;
-    padding: 30px;
-    background-color: white;
-    border-radius: 12px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    padding: 32px;
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid #e9ddff;
+    border-radius: 20px;
+    box-shadow: 0 15px 45px rgba(91, 33, 182, 0.12);
 }
 
-/* Heading */
+/* ---------- Heading ---------- */
 h1 {
     text-align: center;
-    margin-top: 0;
-    margin-bottom: 10px;
+    margin: 0 0 10px;
+    color: #6d28d9;
+    font-size: 30px;
+    letter-spacing: -0.5px;
 }
 
 .subtitle {
     text-align: center;
-    color: #777;
-    margin-bottom: 25px;
+    color: #81758f;
+    margin: 0 0 28px;
+    line-height: 1.5;
 }
 
-/* Input form */
+/* ---------- Input form ---------- */
 form {
     display: flex;
     gap: 10px;
 }
 
 input {
-    flex: 1;
+    width: 100%;
     min-width: 0;
-    padding: 12px;
-    border: 1px solid #ccc;
-    border-radius: 6px;
+    padding: 13px 15px;
+    border: 1px solid #ddd2f5;
+    border-radius: 10px;
+    background: #fcfaff;
+    color: #2e2445;
     font-size: 15px;
+    transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 input:focus {
-    outline: 2px solid #93c5fd;
-    border-color: #2563eb;
+    outline: none;
+    border-color: #8b5cf6;
+    box-shadow: 0 0 0 3px rgba(139, 92, 246, 0.15);
 }
 
-/* Buttons */
+input::placeholder {
+    color: #a69bb5;
+}
+
+form button {
+    flex-shrink: 0;
+}
+
+/* ---------- Buttons ---------- */
 button {
     padding: 12px 16px;
     border: none;
-    border-radius: 6px;
-    background-color: #2563eb;
+    border-radius: 10px;
+    background: #7c3aed;
     color: white;
     font-size: 14px;
+    font-weight: 600;
     cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
 }
 
 button:hover {
-    background-color: #1d4ed8;
+    background: #6d28d9;
+    transform: translateY(-1px);
 }
 
-/* Task counter */
+button:active {
+    transform: translateY(0);
+}
+
+button:focus-visible {
+    outline: 3px solid #c4b5fd;
+    outline-offset: 2px;
+}
+
+/* ---------- Search box ---------- */
+.search-box {
+    margin-top: 18px;
+}
+
+#search {
+    background: #f8f5ff;
+}
+
+/* ---------- Filters ---------- */
+.filters {
+    display: flex;
+    gap: 8px;
+    margin-top: 20px;
+}
+
+.filters button {
+    flex: 1;
+    background: #f1eafe;
+    color: #6d28d9;
+}
+
+.filters button:hover {
+    background: #e4d5ff;
+}
+
+/* ---------- Task counter ---------- */
 #count {
     margin: 22px 0 12px;
-    color: #666;
+    color: #786a8b;
     font-size: 14px;
+    font-weight: 600;
 }
 
-/* Task list */
+/* ---------- Task list ---------- */
 #list {
     list-style: none;
     padding: 0;
@@ -88,55 +145,84 @@ button:hover {
     display: flex;
     align-items: center;
     gap: 10px;
-    padding: 12px 0;
-    border-bottom: 1px solid #eee;
+    padding: 14px 0;
+    border-bottom: 1px solid #eee7f7;
 }
 
 #list li span {
     flex: 1;
+    min-width: 0;
     overflow-wrap: anywhere;
+    line-height: 1.5;
 }
 
 /* Completed tasks */
 #list li.done span {
     text-decoration: line-through;
-    color: #999;
+    color: #a49ab2;
 }
 
-/* Smaller screens */
-@media (max-width: 450px) {
+/* Smaller task buttons */
+#list li button {
+    padding: 8px 10px;
+    font-size: 12px;
+}
+
+/* Delete button */
+#list li button[data-action="delete"] {
+    background: #fff0f3;
+    color: #be3455;
+}
+
+#list li button[data-action="delete"]:hover {
+    background: #ffe0e7;
+}
+
+/* ---------- Clear completed ---------- */
+#clear-completed {
+    width: 100%;
+    margin-top: 18px;
+    background: #fce7f3;
+    color: #be185d;
+}
+
+#clear-completed:hover {
+    background: #fbcfe8;
+}
+
+/* ---------- Responsive layout ---------- */
+@media (max-width: 480px) {
+    body {
+        padding: 16px 12px;
+    }
+
     .container {
-        padding: 20px;
+        margin: 16px auto;
+        padding: 22px 18px;
+        border-radius: 16px;
+    }
+
+    h1 {
+        font-size: 26px;
     }
 
     form {
         flex-direction: column;
     }
+
+    form button {
+        width: 100%;
+    }
+
+    #list li {
+        flex-wrap: wrap;
+    }
 }
 
-
-.filters {
-    display: flex;
-    gap: 8px;
-    margin-top: 20px;
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
 }
-
-.filters button {
-    flex: 1;
-    background-color: #e5e7eb;
-    color: #333;
-}
-
-.filters button:hover {
-    background-color: #d1d5db;
-}
-
-#clear-completed {
-    margin-top: 12px;
-    background-color: #dc2626;
-}
-
-#clear-completed:hover {
-    background-color: #b91c1c;
-}
-

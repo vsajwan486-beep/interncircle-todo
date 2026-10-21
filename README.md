@@ -1,17 +1,20 @@
 # 📝 Interactive To-Do List
 
-A simple and responsive To-Do List web application built using HTML, CSS, and JavaScript. It helps users organize daily tasks and track their progress with a clean, easy-to-use interface.
+A clean and responsive To-Do List web application built with HTML, CSS, and JavaScript. It helps users organize daily tasks through a simple interface with persistent browser storage.
 
 ## ✨ Features
 
-- **Add Tasks:** Create new tasks easily.
-- **Complete Tasks:** Mark tasks as completed or undo completion.
-- **Delete Tasks:** Remove individual tasks.
-- **Filter Tasks:** View all, active, or completed tasks.
-- **Clear Completed:** Remove all completed tasks at once.
-- **Task Counter:** Track the number of remaining tasks.
-- **LocalStorage:** Save tasks and their completion status across page reloads.
-- **Input Validation:** Prevent empty tasks from being added.
+- ➕ Add new tasks
+- ✅ Mark tasks as completed and undo completion
+- 🗑️ Delete individual tasks
+- 🔍 Search tasks instantly by name
+- 📂 Filter tasks by All, Active, and Done
+- 🧹 Clear all completed tasks
+- 📊 Track remaining tasks
+- 💾 Save tasks and completion status using LocalStorage
+- 🎨 Clean lavender-and-purple theme
+- 📱 Responsive layout for smaller screens
+- 🛡️ Reject empty tasks and handle invalid saved JSON
 
 ## 🛠️ Technologies Used
 
@@ -20,7 +23,7 @@ A simple and responsive To-Do List web application built using HTML, CSS, and Ja
 - JavaScript
 - Browser LocalStorage
 
-## 📂 Project Structure
+## 📁 Project Structure
 
 ```text
 InternCircle-Todo/
@@ -30,27 +33,29 @@ InternCircle-Todo/
 └── README.md
 ```
 
-## 🚀 How to Run
+## 🚀 Run Locally
 
 1. Clone or download this repository.
-2. Open the project folder in Visual Studio Code.
-3. Open `index.html` using the Live Server extension.
-4. Start adding and managing your tasks.
+2. Open the folder in Visual Studio Code.
+3. Open `index.html` with the Live Server extension.
+4. Add and manage your tasks.
 
-## 💾 How LocalStorage Works
+## 💾 Data Persistence
 
-The application uses `JSON.stringify()` to convert the tasks array into JSON text and store it in the browser's LocalStorage. When the application loads, `JSON.parse()` retrieves and converts the saved data back into an array.
-
-This allows tasks to remain available after refreshing the page in the same browser.
+Tasks are converted to JSON using `JSON.stringify()` and saved in LocalStorage. On startup, `JSON.parse()` loads the saved tasks so they remain available after refreshing the page in the same browser.
 
 ## 🎯 Project Objective
 
-This project was developed as part of **InternCircle Project 02** to practice DOM manipulation, JavaScript event handling, array operations, and browser data persistence.
+Developed as part of **InternCircle Project 02** to practice DOM manipulation, event handling, array operations, filtering, and browser storage.
 
 ## 👨‍💻 Author
 
 **Vivek Sajwan**
 
+- GitHub: https://github.com/vsajwan486-beep
+- LeetCode: https://leetcode.com/u/vivek_sajwan/
+- HackerRank: https://www.hackerrank.com/vsajwan486/hackos
+
 ---
 
-If you find this project useful, feel free to explore the code and suggest improvements.
+This project was created for learning and practice.
